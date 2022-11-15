@@ -13,7 +13,7 @@ struct ContentView: View {
         ZStack {
             FrameView(image: model.frame)
                 .edgesIgnoringSafeArea(.all)
-            ControlView(comicSelected: $model.comicFilter, monoSelected: $model.monoFilter, crystalSelected: $model.crystalFilter)
+            ControlView(comicSelected: $model.comicFilter, lineOverlaySelected: $model.lineOverlayFilter, crystalSelected: $model.crystalFilter)
         }
         
     }

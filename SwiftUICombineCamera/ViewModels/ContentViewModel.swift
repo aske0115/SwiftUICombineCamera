@@ -14,7 +14,7 @@ class ContentViewModel: ObservableObject {
     private let context = CIContext()
 
     var comicFilter = false
-    var monoFilter = false
+    var lineOverlayFilter = false
     var crystalFilter = false
     
     private let cameraManager = CameraManager.shared
@@ -39,8 +39,8 @@ class ContentViewModel: ObservableObject {
                     ciImage = ciImage.applyingFilter("CICrystallize")
                 }
                 
-                if self.monoFilter {
-                    ciImage = ciImage.applyingFilter("CIPhotoEffectNoir")
+                if self.lineOverlayFilter {
+                    ciImage = ciImage.applyingFilter("CILineOverlay")
                 }
       
                 return self.context.createCGImage(ciImage, from: ciImage.extent)

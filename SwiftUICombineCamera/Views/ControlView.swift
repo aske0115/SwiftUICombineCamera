@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ControlView: View {
     @Binding var comicSelected: Bool
-    @Binding var monoSelected: Bool
+    @Binding var lineOverlaySelected: Bool
     @Binding var crystalSelected: Bool
     
     var body: some View {
@@ -17,7 +17,7 @@ struct ControlView: View {
             Spacer()
             HStack(spacing: 12) {
                 ToggleButton(selected: $comicSelected, label: "Comic")
-                ToggleButton(selected: $monoSelected, label: "Mono")
+                ToggleButton(selected: $lineOverlaySelected, label: "LineOverlay")
                 ToggleButton(selected: $crystalSelected, label: "Crystal")
             }
         }
@@ -26,6 +26,6 @@ struct ControlView: View {
 
 struct ControlView_Previews: PreviewProvider {
     static var previews: some View {
-        ControlView(comicSelected: .constant(false), monoSelected: .constant(false), crystalSelected: .constant(false))
+        ControlView(comicSelected: .constant(false), lineOverlaySelected: .constant(false), crystalSelected: .constant(false))
     }
 }
