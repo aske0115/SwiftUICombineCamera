@@ -10,8 +10,12 @@ import SwiftUI
 struct ContentView: View {
     @StateObject private var model = ContentViewModel()
     var body: some View {
-        FrameView(image: model.frame)
-            .edgesIgnoringSafeArea(.all)
+        ZStack {
+            FrameView(image: model.frame)
+                .edgesIgnoringSafeArea(.all)
+            ControlView(comicSelected: $model.comicFilter, monoSelected: $model.monoFilter, crystalSelected: $model.crystalFilter)
+        }
+        
     }
 }
 

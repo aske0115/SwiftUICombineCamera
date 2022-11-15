@@ -9,7 +9,15 @@ import CoreImage
 
 class ContentViewModel: ObservableObject {
     @Published var frame: CGImage?
+    @Published var error: Error?
     
+    private let context = CIContext()
+
+    var comicFilter = false
+    var monoFilter = false
+    var crystalFilter = false
+    
+    private let cameraManager = CameraManager.shared
     private let frameManager = FrameManager.shared
     
     init() {
@@ -19,14 +27,29 @@ class ContentViewModel: ObservableObject {
     func setupSubscriptions() {
         frameManager.$current
             .receive(on: RunLoop.main)
+            .compactMap { $0 }
             .compactMap { pixelBuffer in
-                if let buffer = pixelBuffer {
-                    let ciContext = CIContext()
-                    let ciImage = CIImage(cvImageBuffer: buffer)
-                    return ciContext.createCGImage(ciImage, from: ciImage.extent)
-                } else {
-                    return nil
+                var ciImage = CIImage(cvImageBuffer: pixelBuffer)
+                
+                if self.comicFilter {
+                    ciImage = ciImage.applyingFilter("CIComicEffect")
                 }
+                
+                if self.crystalFilter {
+                    ciImage = ciImage.applyingFilter("CICrystallize")
+                }
+                
+                if self.monoFilter {
+                    ciImage = ciImage.applyingFilter("CIPhotoEffectNoir")
+                }
+      
+                return self.context.createCGImage(ciImage, from: ciImage.extent)
+                
             }.assign(to: &$frame)
+        
+        cameraManager.$error
+            .receive(on: RunLoop.main)
+            .map { $0 }
+            .assign(to: &$error)
     }
 }
