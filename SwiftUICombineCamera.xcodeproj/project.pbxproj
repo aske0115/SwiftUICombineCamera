@@ -15,6 +15,9 @@
 		FC0B58282923C74500B0C0B8 /* SwiftUICombineCameraUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0B58272923C74500B0C0B8 /* SwiftUICombineCameraUITests.swift */; };
 		FC0B582A2923C74500B0C0B8 /* SwiftUICombineCameraUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0B58292923C74500B0C0B8 /* SwiftUICombineCameraUITestsLaunchTests.swift */; };
 		FC0B58382923C78600B0C0B8 /* FrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0B58372923C78600B0C0B8 /* FrameView.swift */; };
+		FC0B583C2923C85E00B0C0B8 /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0B583B2923C85E00B0C0B8 /* CameraManager.swift */; };
+		FC0B583E2923CF5500B0C0B8 /* FrameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0B583D2923CF5500B0C0B8 /* FrameManager.swift */; };
+		FC0B58412923D01900B0C0B8 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0B58402923D01900B0C0B8 /* ContentViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +49,9 @@
 		FC0B58272923C74500B0C0B8 /* SwiftUICombineCameraUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUICombineCameraUITests.swift; sourceTree = "<group>"; };
 		FC0B58292923C74500B0C0B8 /* SwiftUICombineCameraUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUICombineCameraUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FC0B58372923C78600B0C0B8 /* FrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameView.swift; sourceTree = "<group>"; };
+		FC0B583B2923C85E00B0C0B8 /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
+		FC0B583D2923CF5500B0C0B8 /* FrameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameManager.swift; sourceTree = "<group>"; };
+		FC0B58402923D01900B0C0B8 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +102,8 @@
 		FC0B580B2923C74400B0C0B8 /* SwiftUICombineCamera */ = {
 			isa = PBXGroup;
 			children = (
+				FC0B583F2923D00E00B0C0B8 /* ViewModels */,
+				FC0B583A2923C85200B0C0B8 /* CameraModule */,
 				FC0B58362923C75600B0C0B8 /* Views */,
 				FC0B580C2923C74400B0C0B8 /* SwiftUICombineCameraApp.swift */,
 				FC0B580E2923C74400B0C0B8 /* ContentView.swift */,
@@ -136,6 +144,23 @@
 				FC0B58372923C78600B0C0B8 /* FrameView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		FC0B583A2923C85200B0C0B8 /* CameraModule */ = {
+			isa = PBXGroup;
+			children = (
+				FC0B583B2923C85E00B0C0B8 /* CameraManager.swift */,
+				FC0B583D2923CF5500B0C0B8 /* FrameManager.swift */,
+			);
+			path = CameraModule;
+			sourceTree = "<group>";
+		};
+		FC0B583F2923D00E00B0C0B8 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				FC0B58402923D01900B0C0B8 /* ContentViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,8 +293,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC0B583E2923CF5500B0C0B8 /* FrameManager.swift in Sources */,
 				FC0B58382923C78600B0C0B8 /* FrameView.swift in Sources */,
+				FC0B58412923D01900B0C0B8 /* ContentViewModel.swift in Sources */,
 				FC0B580F2923C74400B0C0B8 /* ContentView.swift in Sources */,
+				FC0B583C2923C85E00B0C0B8 /* CameraManager.swift in Sources */,
 				FC0B580D2923C74400B0C0B8 /* SwiftUICombineCameraApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -429,19 +457,22 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUICombineCamera/Preview Content\"";
+				DEVELOPMENT_TEAM = XH23A9QCBW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "너찍을꺼야";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = daeun.SwiftUICombineCamera;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.co.11st.mobile.inhouse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -457,19 +488,22 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUICombineCamera/Preview Content\"";
+				DEVELOPMENT_TEAM = XH23A9QCBW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "너찍을꺼야";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = daeun.SwiftUICombineCamera;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.co.11st.mobile.inhouse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
